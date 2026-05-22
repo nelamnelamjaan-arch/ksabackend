@@ -1,0 +1,27 @@
+{
+  "completedKeys": [
+    "garment:jewelry",
+    "garment:shoes",
+    "garment:makeup",
+    "garment:fashion-women",
+    "garment:fashion-men",
+    "garment:fashion-kids",
+    "food:groceries:SA",
+    "food:groceries:AE",
+    "food:fresh-produce:SA",
+    "food:fresh-produce:AE",
+    "food:dairy:SA",
+    "food:dairy:AE",
+    "food:meat:SA",
+    "food:meat:AE",
+    "food:snacks:SA",
+    "food:snacks:AE",
+    "food:beverages:SA",
+    "food:beverages:AE",
+    "food:frozen-foods:SA",
+    "food:frozen-foods:AE",
+    "food:daily-essentials:SA",
+    "food:daily-essentials:AE"
+  ],
+  "updatedAt": "2026-05-19T08:55:08.326Z"
+}
