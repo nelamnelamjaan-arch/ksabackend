@@ -1,5 +1,6 @@
 const DEFAULT_DEV_ORIGIN = "http://localhost:5173";
-const PRODUCTION_CLIENT_ORIGIN = "https://ksa-store-client-tjx3.vercel.app";
+/** Live Vercel client — always merged on serverless deploys. */
+const PRODUCTION_CLIENT_ORIGIN = "https://ksafrontend.vercel.app";
 
 function splitOrigins(raw) {
   if (raw == null || String(raw).trim() === "") return [];
@@ -9,11 +10,17 @@ function splitOrigins(raw) {
     .filter(Boolean);
 }
 
+function uniqueOrigins(list) {
+  return [...new Set(list.filter(Boolean))];
+}
+
 /** Origins allowed for Express `cors` and Socket.io (comma-separated `CLIENT_ORIGIN`). */
 export function getCorsAllowedOrigins() {
   const fromEnv = splitOrigins(process.env.CLIENT_ORIGIN);
+  if (process.env.VERCEL === "1") {
+    return uniqueOrigins([...fromEnv, PRODUCTION_CLIENT_ORIGIN]);
+  }
   if (fromEnv.length) return fromEnv;
-  if (process.env.VERCEL === "1") return [PRODUCTION_CLIENT_ORIGIN];
   return [DEFAULT_DEV_ORIGIN];
 }
 
